@@ -2,7 +2,12 @@
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
-		extend: {},
+		extend: {
+			fontFamily: {
+				humane: ['Humane', 'sans-serif'],
+				sora: ['Sora', 'sans-serif']
+			}
+		},
 	},
 	plugins: [],
 }
