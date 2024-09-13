@@ -1,13 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-	theme: {
-		extend: {
-			fontFamily: {
-				humane: ['Humane', 'sans-serif'],
-				sora: ['Sora', 'sans-serif']
-			}
-		},
-	},
-	plugins: [],
-}
+  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  theme: {
+    extend: {
+      fontFamily: {
+        humane: ["Humane", "sans-serif"],
+        sora: ["Sora", "sans-serif"],
+      },
+    },
+  },
+  plugins: [],
+};
