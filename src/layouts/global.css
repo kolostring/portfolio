@@ -1,15 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  .parallax-body {
+    perspective: 1rem;
+  }
+
+  .parallax-container {
+    transform-style: preserve-3d;
+  }
+
+  .parallax-item-farthest {
+    transform: translate3d(0rem, 0rem, -1rem) scale(2);
+    -webkit-transform: translate3d(0rem, 0rem, -1rem) scale(2);
+    -moz-transform: translate3d(0rem, 0rem, -1rem) scale(2);
+    -ms-transform: translate3d(0rem, 0rem, -1rem) scale(2);
+    -o-transform: translate3d(0rem, 0rem, -1rem) scale(2);
+  }
+
+  .parallax-item-far {
+    transform: translate3d(0rem, 0rem, -0.5rem) scale(1.5);
+    -webkit-transform: translate3d(0rem, 0rem, -0.5rem) scale(1.5);
+    -moz-transform: translate3d(0rem, 0rem, -0.5rem) scale(1.5);
+    -ms-transform: translate3d(0rem, 0rem, -0.5rem) scale(1.5);
+    -o-transform: translate3d(0rem, 0rem, -0.5rem) scale(1.5);
+  }
+
   @font-face {
-    font-family: 'Humane';
+    font-family: "Humane";
     font-style: normal;
     font-weight: 400;
     font-display: block;
-    src: url('/fonts/Humane/Humane-Regular.woff2') format('woff2');
+    src: url("/fonts/Humane/Humane-Regular.woff2") format("woff2");
   }
 }

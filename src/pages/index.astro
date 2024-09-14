@@ -1,8 +1,36 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+
+import Smoke from "@/assets/images/smoke.jpg";
 ---
 
 <Layout title="Welcome to Astro.">
-	<main>
-	</main>
+  <main class="parallax-body h-dvh overflow-y-auto overflow-x-hidden">
+    <header
+      class="parallax-container relative isolate -z-10 flex h-svh flex-col items-center justify-center"
+    >
+      <Image
+        class="parallax-item-far absolute right-0 top-0 -z-10 w-full min-w-[1000px] blur-sm filter"
+        src={Smoke}
+        alt=""
+      />
+      <h1
+        class="mx-auto flex w-fit flex-col items-center justify-center uppercase"
+      >
+        <span class="font-sora text-xl leading-[none]">Yoel Rodríguez</span>
+        <span class="bg-top font-humane text-[224px] leading-none tracking-wide"
+          >Frontend</span
+        >
+        <span
+          class="bg-center font-humane text-[224px] leading-[134px] tracking-wide"
+          >Developer</span
+        >
+      </h1>
+      <p class="mt-4 font-sora text-xl uppercase leading-[none]">
+        Based in Havana, Cuba
+      </p>
+    </header>
+
+  </main>
 </Layout>
