@@ -1,24 +1,18 @@
 ---
-import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 
-import Smoke from "@/assets/images/smoke.jpg";
+import Fluid from "@/components/Fluid.astro";
 ---
 
 <Layout title="Welcome to Astro.">
-  <main class="parallax-body h-dvh overflow-y-auto overflow-x-hidden">
-    <header
-      class="parallax-container relative isolate -z-10 flex h-svh flex-col items-center justify-center"
-    >
-      <Image
-        class="parallax-item-far absolute right-0 top-0 -z-10 w-full min-w-[1000px] blur-sm filter"
-        src={Smoke}
-        alt=""
-      />
+  <Fluid />
+  <main class="relative h-svh overflow-hidden">
+    <canvas id="fluid" class="absolute filter blur-[1.5px] z-10 mix-blend-screen"></canvas>
+    <header class="flex h-svh select-none flex-col items-center justify-center">
       <h1
         class="mx-auto flex w-fit flex-col items-center justify-center uppercase"
       >
-        <span class="font-sora text-xl leading-[none]">Yoel Rodríguez</span>
+        <span class="text-xl leading-[none]">Yoel Rodríguez</span>
         <span class="bg-top font-humane text-[224px] leading-none tracking-wide"
           >Frontend</span
         >
@@ -31,6 +25,5 @@ import Smoke from "@/assets/images/smoke.jpg";
         Based in Havana, Cuba
       </p>
     </header>
-
   </main>
 </Layout>
