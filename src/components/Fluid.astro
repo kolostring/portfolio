@@ -74,7 +74,7 @@
   const canvas_height =
     window.innerHeight + resolution - (window.innerHeight % resolution); //This too.
 
-  const pen_size = Math.max(canvas_height, canvas_width) /22; //Radius around the mouse cursor coordinates to reach when stirring
+  const pen_size = 60; //Radius around the mouse cursor coordinates to reach when stirring
 
   const num_cols = canvas_width / resolution; //This value is the number of columns in the grid.
   const num_rows = canvas_height / resolution; //This is number of rows.
@@ -229,6 +229,7 @@
     document.addEventListener("mouseout", mouse_out);
     window.addEventListener("mousemove", mouse_move_handler);
     window.addEventListener("touchmove", touch_move_handler);
+    window.addEventListener("touchend", touch_end_handler);
 
     //When the page is finished loading, run the draw() function.
     window.onload = draw;
@@ -263,7 +264,7 @@ this function when it's called.
 
   //This function is called whenever a touch point is removed from the screen.
   function touch_end_handler(e: TouchEvent) {
-    if (!e.touches) mouse.down = false; //If there are no more touches on the screen, sets "down" to false.
+    if (!e.touches || e.touches.length === 0) mouse.down = false; //If there are no more touches on the screen, sets "down" to false.
   }
 
   /*
@@ -277,8 +278,8 @@ browser at intervals.
     mouse.py = mouse.y;
 
     //Sets the new coordinates
-    mouse.x = e.offsetX || e.layerX;
-    mouse.y = e.offsetY || e.layerY;
+    mouse.x = e.clientX //e.offsetX || e.layerX;
+    mouse.y = e.clientY //e.offsetY || e.layerY;
 
     if(!mouse.down) {
       mouse.px = mouse.x;
@@ -305,6 +306,12 @@ browser at intervals.
     */
     mouse.x = e.touches[0].pageX - rect.left;
     mouse.y = e.touches[0].pageY - rect.top;
+
+    if(!mouse.down) {
+      mouse.px = mouse.x;
+      mouse.py = mouse.y;
+      mouse.down = true;
+    }
   }
 
   /*
