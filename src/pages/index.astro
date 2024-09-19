@@ -6,24 +6,39 @@ import Fluid from "@/components/Fluid.astro";
 
 <Layout title="Welcome to Astro.">
   <Fluid />
-  <main class="relative h-svh overflow-hidden">
-    <canvas id="fluid" class="absolute filter blur-[1.5px] z-10 mix-blend-screen"></canvas>
-    <header class="flex h-svh select-none flex-col items-center justify-center">
-      <h1
-        class="mx-auto flex w-fit flex-col items-center justify-center uppercase"
-      >
-        <span class="text-xl leading-[none]">Yoel Rodríguez</span>
-        <span class="bg-top font-humane text-[224px] leading-none tracking-wide"
+  <main class="relative flex h-svh flex-col justify-center overflow-hidden">
+    <canvas id="fluid" class="absolute blur-[1.5px] filter"></canvas>
+    <header class="z-10 flex select-none flex-col items-center text-[1.5vmax]">
+      <h1 class="mx-auto flex flex-col items-center justify-center uppercase">
+        <span class="text-[1em] leading-[none]">Yoel Rodríguez</span>
+        <span class="bg-top font-humane text-[10em] leading-none tracking-wide"
           >Frontend</span
         >
         <span
-          class="bg-center font-humane text-[224px] leading-[134px] tracking-wide"
+          class="bg-center font-humane text-[10em] leading-[0.55em] tracking-wide"
           >Developer</span
         >
       </h1>
-      <p class="mt-4 font-sora text-xl uppercase leading-[none]">
-        Based in Havana, Cuba
-      </p>
+      <p class="text-[2.2em] uppercase leading-[none]">& Freelancer</p>
     </header>
+    <nav
+      class="absolute bottom-0 left-0 right-0 z-10 mx-auto flex w-fit items-center justify-between gap-2 px-8 pb-12 text-xs uppercase"
+    >
+      <a
+        href=""
+        class='relative flex items-center overflow-hidden rounded-full px-6 py-2 font-light leading-3 backdrop-blur backdrop-brightness-200 transition-colors duration-100 before:absolute before:bottom-0 before:left-3 before:top-0 before:my-auto before:size-2 before:animate-pulse before:rounded-full before:bg-white before:transition-colors before:content-[""] after:absolute after:left-0 after:top-0 after:-z-10 after:size-[105%] after:-translate-x-[105%] after:rounded-full after:bg-white after:transition-transform after:content-[""] hover:text-black hover:before:bg-black hover:after:-translate-x-0'
+        >About me</a
+      >
+      <a
+        href=""
+        class='relative flex items-center overflow-hidden rounded-full px-6 py-2 font-light leading-3 backdrop-blur backdrop-brightness-200 transition-colors duration-100 before:absolute before:bottom-0 before:left-3 before:top-0 before:my-auto before:size-2 before:animate-pulse before:rounded-full before:bg-white before:transition-colors before:content-[""] after:absolute after:left-0 after:top-0 after:-z-10 after:size-[105%] after:-translate-x-[105%] after:rounded-full after:bg-white after:transition-transform after:content-[""] hover:text-black hover:before:bg-black hover:after:-translate-x-0'
+        >My work</a
+      >
+      <a
+        href=""
+        class='relative flex items-center overflow-hidden rounded-full px-6 py-2 font-light leading-3 backdrop-blur backdrop-brightness-200 transition-colors duration-100 before:absolute before:bottom-0 before:left-3 before:top-0 before:my-auto before:size-2 before:animate-pulse before:rounded-full before:bg-white before:transition-colors before:content-[""] after:absolute after:left-0 after:top-0 after:-z-10 after:size-[105%] after:-translate-x-[105%] after:rounded-full after:bg-white after:transition-transform after:content-[""] hover:text-black hover:before:bg-black hover:after:-translate-x-0'
+        >Contact</a
+      >
+    </nav>
   </main>
 </Layout>
