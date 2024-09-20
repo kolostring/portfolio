@@ -2,15 +2,17 @@
 import Layout from "../layouts/Layout.astro";
 
 import Fluid from "@/components/Fluid.astro";
+import FileDownloadIcon from "@/assets/icons/file-save.svg?raw";
+import SwipeUpIcon from "@/assets/icons/swipe-up.svg?raw";
 ---
 
 <Layout title="Welcome to Astro.">
   <section
     id="hero"
     aria-labelledby="hero-title"
-    class="relative flex h-screen snap-start flex-col justify-center overflow-hidden"
+    class="relative flex h-svh snap-start flex-col justify-center overflow-hidden"
   >
-    <Fluid  class="absolute mix-blend-screen blur-[1.5px] filter" />
+    <Fluid class="absolute mix-blend-screen blur-[1.5px] filter" />
     <header class="-z-10 flex select-none flex-col items-center text-[1.5vmax]">
       <h1
         id="hero-title"
@@ -28,24 +30,36 @@ import Fluid from "@/components/Fluid.astro";
       <p class="text-[2.2em] uppercase leading-[none]">& Freelancer</p>
     </header>
     <nav
-      class="absolute bottom-0 left-0 right-0 z-10 mx-auto flex w-fit items-center justify-between gap-2 px-8 pb-24 pt-12 text-xs uppercase md:pb-12"
+      class="absolute bottom-0 left-0 right-0 z-10 mx-auto grid w-fit grid-cols-2 items-center justify-between gap-2 px-8 pb-24 text-xs uppercase md:pb-12"
     >
       <a
         href=""
-        class='relative flex items-center overflow-hidden rounded-full px-6 py-2 font-light leading-3 backdrop-blur backdrop-brightness-200 transition-colors duration-100 before:absolute before:bottom-0 before:left-3 before:top-0 before:my-auto before:size-2 before:animate-pulse before:rounded-full before:bg-white before:transition-colors before:content-[""] after:absolute after:left-0 after:top-0 after:-z-10 after:size-[105%] after:-translate-x-[105%] after:rounded-full after:bg-white after:transition-transform after:content-[""] hover:text-black hover:before:bg-black hover:after:-translate-x-0'
-        >About me</a
+        class='group relative flex items-center justify-center overflow-hidden rounded-full px-6 py-2 font-light leading-3 backdrop-blur backdrop-brightness-200 transition-colors duration-100 after:absolute after:left-0 after:top-0 after:-z-10 after:size-[105%] after:-translate-x-[105%] after:rounded-full after:bg-white after:transition-transform after:content-[""] hover:text-black hover:before:bg-black hover:after:-translate-x-0'
+      >
+        <span class="mr-2 size-4">
+          <Fragment set:html={FileDownloadIcon} />
+        </span>
+        Résumé</a
       >
       <a
         href=""
-        class='relative flex items-center overflow-hidden rounded-full px-6 py-2 font-light leading-3 backdrop-blur backdrop-brightness-200 transition-colors duration-100 before:absolute before:bottom-0 before:left-3 before:top-0 before:my-auto before:size-2 before:animate-pulse before:rounded-full before:bg-white before:transition-colors before:content-[""] after:absolute after:left-0 after:top-0 after:-z-10 after:size-[105%] after:-translate-x-[105%] after:rounded-full after:bg-white after:transition-transform after:content-[""] hover:text-black hover:before:bg-black hover:after:-translate-x-0'
-        >My work</a
-      >
-      <a
-        href=""
-        class='relative flex items-center overflow-hidden rounded-full px-6 py-2 font-light leading-3 backdrop-blur backdrop-brightness-200 transition-colors duration-100 before:absolute before:bottom-0 before:left-3 before:top-0 before:my-auto before:size-2 before:animate-pulse before:rounded-full before:bg-white before:transition-colors before:content-[""] after:absolute after:left-0 after:top-0 after:-z-10 after:size-[105%] after:-translate-x-[105%] after:rounded-full after:bg-white after:transition-transform after:content-[""] hover:text-black hover:before:bg-black hover:after:-translate-x-0'
+        class='relative flex items-center justify-center overflow-hidden rounded-full px-6 py-2 font-light leading-3 backdrop-blur backdrop-brightness-200 transition-colors duration-100 before:absolute before:bottom-0 before:left-3 before:top-0 before:my-auto before:size-2 before:animate-pulse before:rounded-full before:bg-white before:transition-colors before:content-[""] after:absolute after:left-0 after:top-0 after:-z-10 after:size-[105%] after:-translate-x-[105%] after:rounded-full after:bg-white after:transition-transform after:content-[""] hover:text-black hover:before:bg-black hover:after:-translate-x-0'
         >Contact</a
       >
     </nav>
+    <div class="absolute bottom-0 left-0 right-0 from-black from-10% to-transparent bg-gradient-to-t h-32">
+    </div>
+    <figure
+      class="absolute bottom-4 right-4 flex flex-col items-center opacity-10 md:invisible"
+      aria-labelledby="caption"
+    >
+      <div class="size-12">
+        <Fragment set:html={SwipeUpIcon} />
+      </div>
+      <p class="max-w-20 text-xs">Swipe up</p>
+    </figure>
   </section>
-  <section class="snap-start"></section>
+  <section class="snap-start">
+    
+  </section>
 </Layout>
