@@ -1,3 +1,10 @@
+---
+type Props = astroHTML.JSX.CanvasHTMLAttributes;
+
+const props = Astro.props;
+---
+<canvas {...props} id="fluid" ></canvas>
+
 <script>
   //This function is used to create a Cell object.
   class Cell {
@@ -324,15 +331,6 @@ browser at intervals.
       mouse.down = true;
     }
   }
-
-  /*
-Request animation frame polyfill. This enables you to use "requestAnimationFrame" 
-regardless of the browser the script is running in.
-*/
-  window.requestAnimationFrame = window.requestAnimationFrame;
-  // ||
-  // window.webkitRequestAnimationFrame ||
-  // window.mozRequestAnimationFrame;
 
   //And this line calls the init() function defined above to start the script.
   init();

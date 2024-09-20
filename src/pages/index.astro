@@ -5,14 +5,12 @@ import Fluid from "@/components/Fluid.astro";
 ---
 
 <Layout title="Welcome to Astro.">
-  <Fluid />
   <section
     id="hero"
     aria-labelledby="hero-title"
     class="relative flex h-screen snap-start flex-col justify-center overflow-hidden"
   >
-    <canvas id="fluid" class="absolute mix-blend-screen blur-[1.5px] filter"
-    ></canvas>
+    <Fluid  class="absolute mix-blend-screen blur-[1.5px] filter" />
     <header class="-z-10 flex select-none flex-col items-center text-[1.5vmax]">
       <h1
         id="hero-title"
