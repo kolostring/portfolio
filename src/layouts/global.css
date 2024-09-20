@@ -6,7 +6,7 @@
 
 @layer base {
   html, body{
-    @apply overscroll-none snap-mandatory snap-y snap-always;
+    @apply overscroll-none scroll-smooth;
   }
 
   .disable-scroll {
