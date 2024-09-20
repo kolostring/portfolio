@@ -322,8 +322,8 @@ browser at intervals.
     And this sets the mouse coordinates to where the first touch is. Since we're using pageX
     and pageY, we need to subtract the top and left offset of the canvas so the values are correct.
     */
-    mouse.x = e.touches[0].pageX - rect.left + window.scrollX;
-    mouse.y = e.touches[0].pageY - rect.top + window.scrollY;
+    mouse.x = e.touches[0].clientX + window.scrollX;
+    mouse.y = e.touches[0].clientY + window.scrollY;
 
     if (!mouse.down) {
       mouse.px = mouse.x;
