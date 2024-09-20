@@ -6,10 +6,18 @@ import Fluid from "@/components/Fluid.astro";
 
 <Layout title="Welcome to Astro.">
   <Fluid />
-  <main class="relative flex h-svh flex-col justify-center overflow-hidden">
-    <canvas id="fluid" class="absolute blur-[1.5px] filter"></canvas>
-    <header class="z-10 flex select-none flex-col items-center text-[1.5vmax]">
-      <h1 class="mx-auto flex flex-col items-center justify-center uppercase">
+  <section
+    id="hero"
+    aria-labelledby="hero-title"
+    class="relative flex h-screen snap-start flex-col justify-center overflow-hidden"
+  >
+    <canvas id="fluid" class="absolute mix-blend-screen blur-[1.5px] filter"
+    ></canvas>
+    <header class="-z-10 flex select-none flex-col items-center text-[1.5vmax]">
+      <h1
+        id="hero-title"
+        class="mx-auto flex flex-col items-center justify-center uppercase"
+      >
         <span class="text-[1em] leading-[none]">Yoel Rodríguez</span>
         <span class="bg-top font-humane text-[10em] leading-none tracking-wide"
           >Frontend</span
@@ -22,7 +30,7 @@ import Fluid from "@/components/Fluid.astro";
       <p class="text-[2.2em] uppercase leading-[none]">& Freelancer</p>
     </header>
     <nav
-      class="absolute bottom-0 left-0 right-0 z-10 mx-auto flex w-fit items-center justify-between gap-2 px-8 pb-12 text-xs uppercase"
+      class="absolute bottom-0 left-0 right-0 z-10 mx-auto flex w-fit items-center justify-between gap-2 px-8 pb-24 pt-12 text-xs uppercase md:pb-12"
     >
       <a
         href=""
@@ -40,5 +48,6 @@ import Fluid from "@/components/Fluid.astro";
         >Contact</a
       >
     </nav>
-  </main>
+  </section>
+  <section class="snap-start"></section>
 </Layout>

@@ -78,7 +78,10 @@
 
   const num_cols = canvas_width / resolution; //This value is the number of columns in the grid.
   const num_rows = canvas_height / resolution; //This is number of rows.
-  const speck_count = Math.min(Math.max(canvas_width, canvas_height) * 5, 10000); //This determines how many particles will be made.
+  const speck_count = Math.min(
+    Math.max(canvas_width, canvas_height) * 5,
+    10000
+  ); //This determines how many particles will be made.
 
   const vec_cells: Cell[][] = []; //The array that will contain the grid cells
   const particles: Particle[] = []; //The array that will contain the particles
@@ -227,9 +230,10 @@
     // window.addEventListener("touchend", touch_end_handler);
 
     document.addEventListener("mouseout", mouse_out);
-    window.addEventListener("mousemove", mouse_move_handler);
-    window.addEventListener("touchmove", touch_move_handler);
-    window.addEventListener("touchend", touch_end_handler);
+    document.addEventListener("mousemove", mouse_move_handler);
+    document.addEventListener("touchmove", touch_move_handler);
+    document.addEventListener("touchstart", touch_start_handler);
+    document.addEventListener("touchend", touch_end_handler);
 
     //When the page is finished loading, run the draw() function.
     window.onload = draw;
@@ -255,6 +259,11 @@ this function when it's called.
 
   //This function is called whenever a touch is registered.
   function touch_start_handler(e: TouchEvent) {
+    if ((e.target as Element).id === "fluid") {
+      const htmlElement = document.querySelector("html");
+      htmlElement?.classList.add("disable-scroll");
+    }
+
     //e.preventDefault(); //Prevents the default action from happening (e.g. navigation)
     let rect = canvas.getBoundingClientRect();
     mouse.x = mouse.px = e.touches[0].pageX - rect.left; //Set both previous and current coordinates
@@ -264,6 +273,8 @@ this function when it's called.
 
   //This function is called whenever a touch point is removed from the screen.
   function touch_end_handler(e: TouchEvent) {
+    const htmlElement = document.querySelector("html");
+    htmlElement?.classList.remove("disable-scroll");
     if (!e.touches || e.touches.length === 0) mouse.down = false; //If there are no more touches on the screen, sets "down" to false.
   }
 
@@ -278,10 +289,10 @@ browser at intervals.
     mouse.py = mouse.y;
 
     //Sets the new coordinates
-    mouse.x = e.clientX //e.offsetX || e.layerX;
-    mouse.y = e.clientY //e.offsetY || e.layerY;
+    mouse.x = e.clientX + window.scrollX; //e.offsetX || e.layerX;
+    mouse.y = e.clientY + window.scrollY; //e.offsetY || e.layerY;
 
-    if(!mouse.down) {
+    if (!mouse.down) {
       mouse.px = mouse.x;
       mouse.py = mouse.y;
       mouse.down = true;
@@ -304,10 +315,10 @@ browser at intervals.
     And this sets the mouse coordinates to where the first touch is. Since we're using pageX
     and pageY, we need to subtract the top and left offset of the canvas so the values are correct.
     */
-    mouse.x = e.touches[0].pageX - rect.left;
-    mouse.y = e.touches[0].pageY - rect.top;
+    mouse.x = e.touches[0].pageX - rect.left + window.scrollX;
+    mouse.y = e.touches[0].pageY - rect.top + window.scrollY;
 
-    if(!mouse.down) {
+    if (!mouse.down) {
       mouse.px = mouse.x;
       mouse.py = mouse.y;
       mouse.down = true;
